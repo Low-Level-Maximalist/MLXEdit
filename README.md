@@ -1,6 +1,22 @@
 # MLXEdit
 Low-Level-Maximalist: Hinterfragt jedes Byte, verweigert Standard-Pfade und holt 90% des theoretischen Hardware-Maximums heraus.
 # MLXEdit — MultiLineExtendedEdit
+## 🧩 Architektur-Kontext / Architectural Context
+
+[DEUTSCH]
+**Hinweis zur Integration:** MLXEdit ist von Grund auf als hochperformantes Unterprogramm (Core Engine) für ein übergeordnetes **Datenbankprogramm** konzipiert. Die vollständige Steuerung (wie das Laden/Speichern von Dateien und die Menüführung) wird nativ im Hauptprogramm verankert. Aus diesem Grund sind diese Benutzeroberflächen-Elemente in diesem isolierten Performance-Release bewusst nicht implementiert.
+
+[ENGLISH]
+**Integration Note:** MLXEdit is engineered from the ground up to serve as an ultra-high-performance sub-component (core engine) embedded within a larger **database application**. All high-level control flows (such as file I/O operations and menu navigation) are natively handled by the main host application. Consequently, these UI elements are intentionally omitted from this standalone performance showcase.
+
+
+## ⚠️ Antivirus Note / Hinweis zu Virenscannern
+[DEUTSCH]
+Da diese Engine ohne typischen Framework-Ballast direkt mit der Win32-API kommuniziert und bei großen Dateien (ab 131.072 Zeilen) alle CPU-Kerne über hocheffizientes Multithreading voll auslastet, schlagen einige Virenscanner aufgrund dieser unüblichen Verhaltens-Heuristik (False Positive) an. Die Standalone-EXE ist absolut sauber und sicher.
+
+[ENGLISH]
+Because this engine communicates directly with the Win32 API without heavy framework bloat and utilizes high-efficiency multithreading across all CPU cores for large files (above 131,072 lines), some antivirus scanners may trigger a false positive based on behavioral heuristics. The standalone EXE is completely clean and safe.
+
 
 [DEUTSCH]
 MLXEdit ist eine ultra-performante, hardware-nahe Text-Editor-Engine, die von Grund auf in C++ geschrieben wurde. Das Projekt verzichtet komplett auf träge Frameworks und kommuniziert direkt mit der Win32-API. Der Fokus liegt auf maximaler CPU-Cache-Effizienz und Echtzeit-Performance-Messung.
@@ -14,6 +30,14 @@ MLXEdit ist eine ultra-performante, hardware-nahe Text-Editor-Engine, die von Gr
 ## Low-Level Architektur-Geheimnisse
 1. **64-Byte Cache-Line Alignment:** Die zentrale `LINEDATA`-Struktur ist exakt 64 Byte groß. Dadurch landet bei jedem RAM-Zugriff genau eine vollständige Zeilenstruktur ohne Verschnitt im ultraschnellen L1/L2-Cache der CPU (Keine Cache Line Splits).
 2. **STL-Reverse-Trick:** Statt bei Einfügevorgängen Millionen von Elementen träge im Speicher nach hinten zu verschieben, nutzt MLXEdit eine hochoptimierte `std::reverse()`-Spiegelungslogik.
+
+## 🕹️ Quick Start / Bedienung
+[DEUTSCH]
+Da sich MLXEdit aktuell in der Core-Entwicklungsphase befindet, besitzt das erste Release kein klassisches Datei-Menü. Sie können die Engine wie folgt testen:
+1. Öffnen Sie MLXEdit.
+2. Kopieren Sie einen beliebigen Text (für den Härtetest eine große Datei wie `sqlite3.c` mit Strg+A und Strg+C).
+3. Fügen Sie den Text per **Strg+V (Paste)** in MLXEdit ein und beobachten Sie die Zeitmessung in der Titelleiste!
+4. Tippen Sie Text ein oder klicken Sie mit der Maus, um die Sub-Millisekunden-Latenzen live zu sehen.
 ---
 
 [ENGLISH]
@@ -28,6 +52,13 @@ MLXEdit is an ultra-high-performance, hardware-aware text editor engine written 
 ## Low-Level Architecture Highlights
 1. **64-Byte Cache-Line Alignment:** The core `LINEDATA` structure is sized at exactly 64 bytes. This ensures that every memory access fetches precisely one full line structure into the CPU's ultra-fast L1/L2 cache, completely avoiding Cache Line Splits.
 2. **The STL Reverse Trick:** Instead of shifting millions of elements backward during a paste operation, MLXEdit utilizes a highly optimized `std::reverse()` mirroring strategy. This converts expensive mid-array insertions into lightning-fast appends.
+
+[ENGLISH]
+Since MLXEdit is currently in its core development phase, this initial release does not feature a traditional file menu. You can test the engine's raw performance using these steps:
+1. Launch MLXEdit.
+2. Copy any text (for a true stress test, copy a massive file like `sqlite3.c` using Ctrl+A and Ctrl+C).
+3. Press **Ctrl+V (Paste)** inside MLXEdit and watch the execution time explode in the title bar!
+4. Type freely or click around with your mouse to observe the sub-millisecond latencies live.
 
 ## Requirements / Voraussetzungen
 * Windows OS (Win32 API)
