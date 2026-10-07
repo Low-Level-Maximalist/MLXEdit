@@ -1,13 +1,15 @@
 # MLXEdit
 Low-Level-Maximalist: Hinterfragt jedes Byte, verweigert Standard-Pfade und holt 90% des theoretischen Hardware-Maximums heraus.
 # MLXEdit — MultiLineExtendedEdit
-## 🧩 Architektur-Kontext / Architectural Context
 
 [DEUTSCH]
-**Hinweis zur Integration:** MLXEdit ist von Grund auf als hochperformantes Unterprogramm (Core Engine) für ein übergeordnetes **Datenbankprogramm** konzipiert. Die vollständige Steuerung (wie das Laden/Speichern von Dateien und die Menüführung) wird nativ im Hauptprogramm verankert. Aus diesem Grund sind diese Benutzeroberflächen-Elemente in diesem isolierten Performance-Release bewusst nicht implementiert.
+* **Native Unicode-Engine:** MLXEdit wird ausschließlich für **UNICODE (`wchar_t` / UTF-16)** kompiliert. Es kommuniziert ohne Performance-Verluste direkt mit den nativen Wide-Character-Schnittstellen der Win32-API (Keine trägen String-Konvertierungen im Hintergrund).
+* **Hinweis zur Integration:** MLXEdit ist von Grund auf als hochperformantes Unterprogramm (Core Engine) für ein übergeordnetes **Datenbankprogramm** konzipiert. Die vollständige Steuerung (wie das Laden/Speichern von Dateien und die Menüführung) wird nativ im Hauptprogramm verankert. Aus diesem Grund sind diese Benutzeroberflächen-Elemente in diesem isolierten Performance-Release bewusst nicht implementiert.
 
 [ENGLISH]
-**Integration Note:** MLXEdit is engineered from the ground up to serve as an ultra-high-performance sub-component (core engine) embedded within a larger **database application**. All high-level control flows (such as file I/O operations and menu navigation) are natively handled by the main host application. Consequently, these UI elements are intentionally omitted from this standalone performance showcase.
+* **Native Unicode Engine:** MLXEdit is compiled exclusively for **UNICODE (`wchar_t` / UTF-16)**. It communicates directly with the native wide-character interfaces of the Win32 API, eliminating any hidden string conversion overhead.
+* **Integration Note:** MLXEdit is engineered from the ground up to serve as an ultra-high-performance sub-component (core engine) embedded within a larger **database application**. All high-level control flows (such as file I/O operations and menu navigation) are natively handled by the main host application. Consequently, these UI elements are intentionally omitted from this standalone performance showcase.
+
 
 
 ## ⚠️ Antivirus Note / Hinweis zu Virenscannern
