@@ -25,6 +25,13 @@ MLXEdit ist eine ultra-performante, hardware-nahe Text-Editor-Engine, die von Gr
 
 ## Tech-Highlights & Performance-Kennzahlen
 * **Live-Performance-Dashboard:** Die exakten Ausführungszeiten kritischer Operationen werden in Echtzeit direkt in der Fenster-Titelleiste angezeigt.
+* ## Komplettes Rendern
+Die Messwerte zeigen die Zeit für das vollständige Rendern des Textpuffers:
+| Datei-Typ / Größe | Monospaced-Schriftarten | Proportionale Schriftarten |
+| :--- | :---: | :---: |
+| **Großdatei (`sqlite3.c`)**<br>8,5 MB, ca. 240.000 Zeilen | **30,5 ms** | **36,8 ms** |
+| **Typischer Text**<br>1,5 MB, ca. 22.000 Zeilen (771.000 Zeichen) | **3,0 ms** | **3,6 ms** |
+
 * **Tipp-Latenz (`OnChar`):** ~1,4 ms — Eingaben fühlen sich absolut verzögerungsfrei an.
 * **Massive Pastes (`Paste`):** Schluckt gigantische Textblöcke (wie die massive `sqlite3.c` mit ~9,4 Millionen Zeichen und über 240.000 Zeilen) in gerade einmal ~502 ms.
 * **Maus-Positionierung (`WM_LBUTTONDOWN`):** Sub-Millisekunden-Bereich beim mathematischen Auflösen von X/Y-Pixelkoordinaten in die exakte Array-Position.
@@ -61,6 +68,13 @@ MLXEdit is an ultra-high-performance, hardware-aware text editor engine written 
 
 ## 🚀 Tech Highlights & Performance Metrics
 * **Live Performance Dashboard:** Exact execution times for critical operations are measured and displayed in real time directly within the window title bar.
+## Performance Benchmarks (Full Rendering)
+The following metrics represent the time required for a complete render of the text buffer:
+| File Type / Size | Monospaced Fonts | Proportional Fonts |
+| :--- | :---: | :---: |
+| **Large File (`sqlite3.c`)**<br>8.5 MB, approx. 240,000 lines | **30,5 ms** | **36.8 ms** |
+| **Typical Text**<br>1.5 MB, approx. 22,000 lines (771,000 chars) | **3.0 ms** | **3.6 ms** |
+
 * **Typing Latency (`OnChar`):** ~1.4 ms — input feels instantaneous.
 * **Massive Pastes (`Paste`):** Swallows massive text blocks (such as the huge `sqlite3.c` source with ~9.4M characters and over 240,000 lines) in just ~502 ms.
 * **Mouse Positioning (`WM_LBUTTONDOWN`):** Sub-millisecond calculation when mapping raw X/Y pixel coordinates to the exact array index.
