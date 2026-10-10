@@ -40,6 +40,20 @@ Da sich MLXEdit aktuell in der Core-Entwicklungsphase befindet, besitzt das erst
 2. Kopieren Sie einen beliebigen Text (für den Härtetest eine große Datei wie `sqlite3.c` mit Strg+A und Strg+C).
 3. Fügen Sie den Text per **Strg+V (Paste)** in MLXEdit ein und beobachten Sie die Zeitmessung in der Titelleiste!
 4. Tippen Sie Text ein oder klicken Sie mit der Maus, um die Sub-Millisekunden-Latenzen live zu sehen.
+
+## Bedienungshinweise & Features
+
+### Multiblock-Funktionen (Mehrfachauswahl)
+MLXEdit unterstützt fortschrittliche Multiblock-Operationen, mit denen Sie mehrere Textblöcke gleichzeitig bearbeiten können:
+* **Auswahl & Zwischenablage:** Wählen Sie mehrere separate Textblöcke mit der Maus aus. Diese können gemeinsam in die Zwischenablage kopiert werden.
+* **Einfügen(Einzeln):** Ersetzen Sie einzelne markierte Blöcke gezielt über das Kontextmenü mit den Daten aus der Zwischenablage.
+* **Einfügen(Global):** Nutzen Sie `Strg + V`, um alle ausgewählten Blöcke im aktuellen Sichtbereich (Scope) gleichzeitig durch den Inhalt der Zwischenablage zu ersetzen.
+* **Löschen:** Die `Entf`-Taste (Delete) löscht alle aktuell ausgewählten Blöcke gleichzeitig oder individuell mit Kontextmenu.
+
+### Suchfunktion
+* **Suchen:** Markieren Sie einfach ein Wort mit der Maus, machen Sie einen Rechtsklick und wählen Sie im Kontextmenü **„Suchen“**.
+* **Fundliste zurücksetzen:** Die optisch hervorgehobenen Suchergebnisse können Sie jederzeit über den Kontextmenü-Eintrag **„Fundliste leeren“** wieder entfernen.
+
 ---
 
 [ENGLISH]
@@ -55,12 +69,28 @@ MLXEdit is an ultra-high-performance, hardware-aware text editor engine written 
 1. **64-Byte Cache-Line Alignment:** The core `LINEDATA` structure is sized at exactly 64 bytes. This ensures that every memory access fetches precisely one full line structure into the CPU's ultra-fast L1/L2 cache, completely avoiding Cache Line Splits.
 2. **The STL Reverse Trick:** Instead of shifting millions of elements backward during a paste operation, MLXEdit utilizes a highly optimized `std::reverse()` mirroring strategy. This converts expensive mid-array insertions into lightning-fast appends.
 
+## Usage Notes & Features
+
 [ENGLISH]
 Since MLXEdit is currently in its core development phase, this initial release does not feature a traditional file menu. You can test the engine's raw performance using these steps:
 1. Launch MLXEdit.
 2. Copy any text (for a true stress test, copy a massive file like `sqlite3.c` using Ctrl+A and Ctrl+C).
 3. Press **Ctrl+V (Paste)** inside MLXEdit and watch the execution time explode in the title bar!
 4. Type freely or click around with your mouse to observe the sub-millisecond latencies live.
+
+
+### Multiblock Operations (Multiple Selection)
+MLXEdit supports advanced multi-block editing, allowing you to manipulate multiple text selections simultaneously:
+* **Selection & Clipboard:** Select multiple separate blocks of text using your mouse and copy them all to the clipboard at once.
+* **Paste / Replace (Individual):** Replace specific selected blocks one by one using the context menu and clipboard data.
+* **Paste / Replace (Global):** Press `Ctrl + V` to globally replace all selected blocks within the current scope with your clipboard content.
+* **Delete:** Press the `Delete` key (Entf) to clear all currently selected blocks simultaneously, or remove them individually using the context menu.
+
+
+### Search Tool
+* **Search:** Simply highlight a word with your mouse, right-click, and select **"Suchen"** (Search) from the context menu.
+* **Clear Highlights:** You can easily remove all highlighted search results at any time by selecting **"Fundliste leeren"** (Clear search results) from the context menu.
+
 
 ## Requirements / Voraussetzungen
 * Windows OS (Win32 API)
